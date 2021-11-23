@@ -5,6 +5,8 @@ import SocketIO from 'socket.io'
 import Express, { Request, Response } from 'express'
 import CGM from '../CGM'
 
+import authRouter from './routes/auth'
+
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
@@ -20,6 +22,8 @@ const main = async () => {
 
     const server = http.createServer(express)
     const io = new SocketIO.Server(server)
+
+    express.use('/auth', authRouter)
 
     io.on('connection', (socket) => {
       console.log(socket.id, 'joined')

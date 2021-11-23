@@ -9,9 +9,7 @@ function Noteblock({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider>
       <HttpProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </HttpProvider>
     </ChakraProvider>
   )
