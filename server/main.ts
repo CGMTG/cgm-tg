@@ -14,6 +14,10 @@ const main = async () => {
   try {
     await app.prepare()
     const express = Express()
+
+    express.use(Express.json())
+    express.use(Express.urlencoded({ extended: true }))
+
     const server = http.createServer(express)
     const io = new SocketIO.Server(server)
 
