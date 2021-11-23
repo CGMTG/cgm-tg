@@ -952,6 +952,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
   integrity sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==
 
+"@prisma/engines@3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e":
+  version "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e.tgz#1873885836294060239f8a887452fd429dc03ae1"
+  integrity sha512-MqZUrxuLlIbjB3wu8LrRJOKcvR4k3dunKoI4Q2bPfAwLQY0XlpsLZ3TRVW1c32ooVk939p6iGNkaCUo63Et36g==
+
 "@reach/alert@0.13.2":
   version "0.13.2"
   resolved "https://registry.yarnpkg.com/@reach/alert/-/alert-0.13.2.tgz#71c4a848d51341f1d6d9eaae060975391c224870"
@@ -3645,6 +3650,13 @@ prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
   integrity sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==
+
+prisma@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-3.5.0.tgz#3717368d75568b370869a5b588f688bd41a14130"
+  integrity sha512-WEYQ+H98O0yigG+lI0gfh4iyBChvnM6QTXPDtY9eFraLXAmyb6tf/T2mUdrUAU1AEvHLVzQA5A+RpONZlQozBg==
+  dependencies:
+    "@prisma/engines" "3.5.0-38.78a5df6def6943431f4c022e1428dbc3e833cf8e"
 
 process@0.11.10:
   version "0.11.10"
