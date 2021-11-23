@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 import { Box, Divider, Stack, Text } from '@chakra-ui/layout'
 import { FiHome, FiMessageCircle, FiPackage, FiSettings } from 'react-icons/fi'
 
@@ -10,7 +12,7 @@ const SBItems = [
 ]
 
 const Sidebar = () => {
-  const [active, setActive] = useState(0)
+  const r = useRouter()
 
   return (
     <Box py={2}>
@@ -19,29 +21,30 @@ const Sidebar = () => {
       </Text>
       <Stack p={2}>
         {SBItems.map(([title, href, icon], idx) => {
-          const isActive = idx === active
+          const isActive = r.pathname === '/app' + (href === '/' ? '' : href)
+
           return (
-            <Box
-              key={idx}
-              rounded='md'
-              transition='all 0.2s'
-              cursor='pointer'
-              color={!isActive ? 'gray.400' : 'red.300'}
-              _hover={{ color: 'red.300' }}
-              onClick={() => setActive(idx)}
-              bg={isActive ? 'red.50' : 'white'}
-              py={2}
-            >
-              <Text
-                fontWeight={isActive ? 'semibold' : 'normal'}
-                px={4}
-                d='flex'
-                alignItems='center'
+            <Link key={idx} href={('/app' + href) as string}>
+              <Box
+                rounded='md'
+                transition='all 0.4s'
+                cursor='pointer'
+                color={!isActive ? 'gray.400' : 'red.300'}
+                _hover={{ color: 'red.300' }}
+                bg={isActive ? 'red.50' : 'white'}
+                py={2}
               >
-                <Box mr={3}>{icon} </Box>
-                {title}
-              </Text>
-            </Box>
+                <Text
+                  fontWeight={isActive ? 'semibold' : 'normal'}
+                  px={4}
+                  d='flex'
+                  alignItems='center'
+                >
+                  <Box mr={3}>{icon} </Box>
+                  {title}
+                </Text>
+              </Box>
+            </Link>
           )
         })}
       </Stack>
