@@ -17,22 +17,30 @@ export const PERMISSIONS = {
 const group = new Composer()
 const permKeys = Object.keys(PERMISSIONS)
 
-group.on('new_chat_members', async (ctx) => {
-  console.log('ctx', ctx.message)
-  let permissions = {}
+group.on('my_chat_member', async (ctx: any) => {
+  const { chat, from, new_chat_member } = ctx.myChatMember
+  let permissions: any = {}
+
+  if (new_chat_member.status !== 'administrator') {
+    return
+  }
+
+  for (let p of permKeys) {
+    permissions[p] = new_chat_member[p]
+  }
 
   try {
-    // await prisma.group.create({
-    //   data: {
-    //     id: chat.id,
-    //     add_by: from.id,
-    //      name: chat.title,
-    //     permissions: {},
-    //     status: new_chat_member.status,
-    //     admins: [],
-    //     username: chat.username || "",
-    //   }
-    // })
+    await prisma.group.create({
+      data: {
+        id: chat.id,
+        add_by: from.id,
+        name: chat.title,
+        permissions,
+        status: new_chat_member.status,
+        admins: [ctx.from.id],
+        username: chat.username || '',
+      },
+    })
   } catch (e) {}
 })
 
