@@ -10,9 +10,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model User {
-  id      Int      @id
-  name    String
-  token   String
+  id    Int    @id
+  name  String
+  token String
+}
+
+model Group {
+  id          Int     @id
+  name        String
+  add_by      Int
+  username    String?
+  permissions Json
+  status      String
+  admins      Int[]
 }

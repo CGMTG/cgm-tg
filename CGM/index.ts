@@ -1,22 +1,24 @@
-import { Bot } from 'grammy'
+import { Telegraf } from 'telegraf'
 
 // methods
-import { start } from './methods'
+import { group, start } from './methods'
 
 const token = process.env.BOT_TOKEN
 
 class CGM {
-  bot: Bot
+  bot: Telegraf
 
   constructor() {
-    const bot = new Bot(token as string)
+    const bot = new Telegraf(token as string)
     this.bot = bot
   }
 
   init() {
-    this.bot.use(start)
+    // methods
+    // this.bot.use(start)
+    this.bot.use(group)
 
-    this.bot.start()
+    this.bot.launch()
   }
 }
 

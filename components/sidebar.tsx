@@ -2,12 +2,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { Box, Divider, Stack, Text } from '@chakra-ui/layout'
-import { FiHome, FiMessageCircle, FiPackage, FiSettings } from 'react-icons/fi'
+import { FiHome, FiSettings } from 'react-icons/fi'
 
 const SBItems = [
   ['Dashboard', '/', <FiHome />],
-  ['Projects', '/about', <FiPackage />],
-  ['Messages', '/projects', <FiMessageCircle />],
   ['Settings', '/settings', <FiSettings />],
 ]
 
@@ -15,11 +13,12 @@ const Sidebar = () => {
   const r = useRouter()
 
   return (
-    <Box py={2}>
+    <Box>
+      <Box h='16' bg='purple.300' w='full' />
       <Text p={2} fontSize='xs' color='gray.400' fontWeight='semibold'>
-        GENERAL
+        GROUPS
       </Text>
-      <Stack p={2}>
+      <Stack px={2}>
         {SBItems.map(([title, href, icon], idx) => {
           const isActive = r.pathname === '/app' + (href === '/' ? '' : href)
 
@@ -29,9 +28,9 @@ const Sidebar = () => {
                 rounded='md'
                 transition='all 0.4s'
                 cursor='pointer'
-                color={!isActive ? 'gray.400' : 'red.300'}
-                _hover={{ color: 'red.300' }}
-                bg={isActive ? 'red.50' : 'white'}
+                color={!isActive ? 'gray.400' : 'purple.300'}
+                _hover={{ color: 'purple.300' }}
+                bg={isActive ? 'purple.50' : 'white'}
                 py={2}
               >
                 <Text

@@ -18,7 +18,7 @@ const Layout: React.FC = ({ children }) => {
 
   return (
     <Flex>
-      <Box w='72' h='100vh' shadow='base'>
+      <Box w='72' h='100vh' shadow='md'>
         <Sidebar />
       </Box>
       <Box bg='gray.50' w='full'>
