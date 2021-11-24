@@ -15,7 +15,7 @@ class CGM {
 
   init() {
     // methods
-    // this.bot.use(start)
+    this.bot.use(start)
     this.bot.use(group)
 
     this.bot.launch()

@@ -1,4 +1,4 @@
-import { Composer } from 'grammy'
+import { Composer } from 'telegraf'
 import shortid from 'shortid'
 
 import { prisma } from '../../providers/prisma'
